@@ -9,11 +9,6 @@ __pycache__/
 # Model files (tracked by DVC instead)
 *.h5
 
-# Pipeline outputs (tracked by DVC, not Git)
-data/
-models/
-metrics.json
-
 # Secrets
 .env
 
