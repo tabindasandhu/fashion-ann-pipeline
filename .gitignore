@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# DVC local cache
+.dvc/cache
+
+# Model files (tracked by DVC instead)
+*.h5
+
+# Secrets
+.env
+
+# Google Drive / DVC gdrive credentials
+gdrive-credentials*.json
+gdrive_credentials*.json
+client_secret*.json
+credentials.json
+service-account*.json
+.dvc/tmp/gdrive-user-credentials.json
+.dvc/config.local
