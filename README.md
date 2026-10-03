@@ -16,7 +16,7 @@ to classify images from the Fashion-MNIST dataset (10 clothing categories, 28x28
 
 ```bash
 python -m venv venv
-venv\Scripts\activate        # Windows  (use `source venv/bin/activate` on Linux/macOS)
+venv\Scripts\activate        # Windows (use `source venv/bin/activate` on Linux/macOS)
 pip install tensorflow "dvc[gdrive]" pyyaml scikit-learn matplotlib
 ```
 
