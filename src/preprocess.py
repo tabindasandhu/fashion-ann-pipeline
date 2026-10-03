@@ -11,8 +11,8 @@ PROCESSED_DIR = os.path.join("data", "processed")
 
 
 def normalize(images):
-    """Scale uint8 pixels in [0, 255] to float32 in [0, 1]."""
-    return images.astype("float32") / 255.0
+    # Scale pixels to [-1, 1]
+    return (images.astype("float32") / 127.5) - 1.0
 
 
 def main():
