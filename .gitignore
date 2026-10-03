@@ -23,4 +23,3 @@ credentials.json
 service-account*.json
 .dvc/tmp/gdrive-user-credentials.json
 .dvc/config.local
-/models
