@@ -9,6 +9,9 @@ __pycache__/
 # Model files (tracked by DVC instead)
 *.h5
 
+# Claude Code local settings
+.claude/
+
 # Secrets
 .env
 
