@@ -1,1 +1,0 @@
-Temporary notes: try dropout 0.2 vs 0.3; check val accuracy after 10 epochs.
