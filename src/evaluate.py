@@ -38,7 +38,8 @@ def main():
     plt.close(fig)
 
     metrics = {"test_loss": float(test_loss), "test_accuracy": float(test_accuracy)}
-    with open("metrics.json", "w") as f:
+    # newline="\n": keep LF on Windows so the git-tracked file matches dvc.lock's hash.
+    with open("metrics.json", "w", newline="\n") as f:
         json.dump(metrics, f, indent=2)
     print(f"Test loss: {test_loss:.4f}  Test accuracy: {test_accuracy:.4f}")
     print(f"Saved metrics.json and {MODELS_DIR}/confusion_matrix.png")

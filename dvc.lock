@@ -78,13 +78,13 @@ stages:
       size: 1245272
     - path: src/evaluate.py
       hash: md5
-      md5: f04531e8162546d8d9600df22844ad17
-      size: 1757
+      md5: 350c1490bd46eb22859a46dd0487e5d8
+      size: 1859
     outs:
     - path: metrics.json
       hash: md5
-      md5: 1a3f68a45788af508ad4b146c7b9e546
-      size: 78
+      md5: 17f6c7e1d7213e9e3603d0f47adfe457
+      size: 75
     - path: models/confusion_matrix.png
       hash: md5
       md5: f6cb13f6a30fdc16542926ee1e87f9d8

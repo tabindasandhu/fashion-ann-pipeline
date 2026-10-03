@@ -1,0 +1,7 @@
+# Always check out text files with LF endings, regardless of core.autocrlf.
+# DVC hashes raw bytes, so CRLF checkouts on Windows would make every source
+# dependency look modified relative to dvc.lock and force needless reruns.
+* text=auto eol=lf
+*.npy binary
+*.h5 binary
+*.png binary
