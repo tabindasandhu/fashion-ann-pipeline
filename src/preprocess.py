@@ -10,9 +10,9 @@ RAW_DIR = os.path.join("data", "raw")
 PROCESSED_DIR = os.path.join("data", "processed")
 
 
-def normalize(images):
-    """Scale uint8 pixels in [0, 255] to float32 in [0, 1]."""
-    return images.astype("float32") / 255.0
+def normalize(images, mean, std):
+    # Standardize using training-set mean and std
+    return (images.astype("float32") - mean) / std
 
 
 def main():
@@ -24,9 +24,6 @@ def main():
     test_images = np.load(os.path.join(RAW_DIR, "test_images.npy"))
     test_labels = np.load(os.path.join(RAW_DIR, "test_labels.npy"))
 
-    train_images = normalize(train_images)
-    test_images = normalize(test_images)
-
     train_images, val_images, train_labels, val_labels = train_test_split(
         train_images,
         train_labels,
@@ -34,6 +31,15 @@ def main():
         random_state=params["seed"],
         stratify=train_labels,
     )
+
+    # Statistics come from the training split only, then are applied to every
+    # split, so no information leaks in from validation or test data.
+    mean = float(train_images.mean(dtype="float64"))
+    std = float(train_images.std(dtype="float64"))
+    print(f"Training-set pixel mean={mean:.4f}, std={std:.4f}")
+    train_images = normalize(train_images, mean, std)
+    val_images = normalize(val_images, mean, std)
+    test_images = normalize(test_images, mean, std)
 
     os.makedirs(PROCESSED_DIR, exist_ok=True)
     arrays = {

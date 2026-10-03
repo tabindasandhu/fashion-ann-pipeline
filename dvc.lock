@@ -23,8 +23,8 @@ stages:
       nfiles: 4
     - path: src/preprocess.py
       hash: md5
-      md5: 77a9b8d5abb6d696686cd267340af586
-      size: 1607
+      md5: d48b1e51d55fba9f671cf069330267a2
+      size: 2059
     params:
       params.yaml:
         preprocess.seed: 42
@@ -32,7 +32,7 @@ stages:
     outs:
     - path: data/processed
       hash: md5
-      md5: d68c1d407abc4eba5ca1a87be9c38c6e.dir
+      md5: 9318b1481e5bccdab123e076a3e0ae06.dir
       size: 219590768
       nfiles: 6
   train:
@@ -40,7 +40,7 @@ stages:
     deps:
     - path: data/processed
       hash: md5
-      md5: d68c1d407abc4eba5ca1a87be9c38c6e.dir
+      md5: 9318b1481e5bccdab123e076a3e0ae06.dir
       size: 219590768
       nfiles: 6
     - path: src/train.py
@@ -58,34 +58,34 @@ stages:
     outs:
     - path: models/history.csv
       hash: md5
-      md5: fc162724f68291482c3e75c2f27626d6
-      size: 841
+      md5: 21c148a34d6434f486eda2d2991592a0
+      size: 838
     - path: models/model.h5
       hash: md5
-      md5: 633b336ad068ba64e95cbd7396b8466c
+      md5: 1d65825eb5549249286dd7d0e82e4d84
       size: 1245272
   evaluate:
     cmd: venv\Scripts\python.exe src/evaluate.py
     deps:
     - path: data/processed
       hash: md5
-      md5: d68c1d407abc4eba5ca1a87be9c38c6e.dir
+      md5: 9318b1481e5bccdab123e076a3e0ae06.dir
       size: 219590768
       nfiles: 6
     - path: models/model.h5
       hash: md5
-      md5: 633b336ad068ba64e95cbd7396b8466c
+      md5: 1d65825eb5549249286dd7d0e82e4d84
       size: 1245272
     - path: src/evaluate.py
       hash: md5
-      md5: f04531e8162546d8d9600df22844ad17
-      size: 1757
+      md5: ac3809102b29a43c9e927d5cf39230d6
+      size: 1805
     outs:
     - path: metrics.json
       hash: md5
-      md5: 1a3f68a45788af508ad4b146c7b9e546
-      size: 78
+      md5: 78e057dbc6da9c01769adcf118c48d07
+      size: 80
     - path: models/confusion_matrix.png
       hash: md5
-      md5: f6cb13f6a30fdc16542926ee1e87f9d8
-      size: 83753
+      md5: 48a01914422d085302fcbc8d6516cadb
+      size: 85528
